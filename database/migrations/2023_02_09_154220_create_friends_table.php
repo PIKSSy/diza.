@@ -17,6 +17,7 @@ return new class extends Migration
             $table->primary(['user','friend']);
             $table->foreignId('user')->references('user_id')->on('users');
             $table->foreignId('friend')->references('user_id')->on('users');
+            $table->tinyInteger('accepted')->default(1);
             $table->timestamps();
         });
     }

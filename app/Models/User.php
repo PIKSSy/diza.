@@ -19,7 +19,6 @@ class User extends Authenticatable
         'birthday',
         'gender',
         'language',
-        'avatar',
         'status',
         'last_seen'
     ];

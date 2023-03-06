@@ -28,7 +28,6 @@ class UserController extends Controller
         $new_user->birthday = $request->birthday;
         $new_user->gender = $request->gender;
         $new_user->language = $request->language;
-        $new_user->avatar = $request->avatar;
         $new_user->status = 0;
         $new_user->save();
     }

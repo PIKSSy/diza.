@@ -26,7 +26,6 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('gender');
             $table->foreignId('language')->references('lang_id')->on('languages');
-            $table->binary('avatar')->nullable();
             $table->tinyInteger('status');
             $table->dateTime('last_seen')->nullable();
             $table->rememberToken();
