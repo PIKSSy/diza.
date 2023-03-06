@@ -20,9 +20,25 @@ class ChatController extends Controller
         return $chat;
     }
 
-    public function new(Request $request){
+    public function destroy($user1, $user2)
+    {
+        $deleted = Chat::where(function($query) use ($user1, $user2) {
+                        $query->where('user1', $user1)->where('user2', $user2)
+                              ->orWhere('user1', $user2)->where('user2', $user1);
+                    })
+                    ->delete();
+        if ($deleted > 0) {
+            return response()->json(['message' => 'Chat deleted successfully.'], 200);
+        } else {
+            return response()->json(['message' => 'No chat found to delete.'], 404);
+        }
+    }
+
+    public function store(Request $request){
         $new_chat = new Chat();
         
         $new_chat->save();
     }
+
+    
 }
